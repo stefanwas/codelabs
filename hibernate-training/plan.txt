@@ -1,0 +1,18 @@
+1. DB config
+2. Hibernate config
+3. Share on github DONE
+---
+1. Single entity read/write example - lesson1
+
+
+
+
+------------------------------------
+Core application programming interfaces for Hibernate
+(Session, Transaction, Query, EntityManager, SessionFactory, Annotations)
+Hibernate Search, Validation, Shards, and Tools technologies
+Mapping inheritance and polymorphic relationships
+Hibernate HQL, Criteria, and JDBC/SQL queries
+Hibernate Tools integrated development environment (IDE)
+Best practices and patterns for Hibernate developers
+Hibernate deployment, configuration, and performance tuning
