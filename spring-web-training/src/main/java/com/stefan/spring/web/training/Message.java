@@ -2,16 +2,23 @@ package com.stefan.spring.web.training;
 
 public class Message {
 
-    private String id;
+    private Long id;
     private String header;
     private String content;
     private String creationTime;
 
-    public String getId() {
+    public Message(Long id, String header, String content, String creationTime) {
+        this.id = id;
+        this.header = header;
+        this.content = content;
+        this.creationTime = creationTime;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

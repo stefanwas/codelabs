@@ -1,19 +1,38 @@
 package com.stefan.spring.web.training;
 
 
+import org.springframework.stereotype.Repository;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@Repository
 public class MessageRepository {
 
-    private final Map<String, Message> messages = new LinkedHashMap<>();
+    private final IdProvider idProvider;
+    private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+    private final Map<Long, Message> messages = new LinkedHashMap<>();
 
-    public Message getMessageById(String id) {
+    public MessageRepository(IdProvider idProvider) {
+        this.idProvider = idProvider;
+    }
+
+    public Message getMessageById(Long id) {
         return messages.get(id);
     }
 
     public Collection<Message> getAllMessages() {
         return messages.values();
+    }
+
+    public void createMessage(String header, String content) {
+        Long id = idProvider.getNextValue();
+        String now = LocalDateTime.now().format(dateTimeFormatter);
+
+        Message message = new Message(id, header, content, now);
+        messages.put(id, message);
     }
 }

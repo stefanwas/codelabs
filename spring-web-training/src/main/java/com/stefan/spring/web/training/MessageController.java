@@ -1,23 +1,40 @@
 package com.stefan.spring.web.training;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.Collection;
 
+@RestController
+@RequestMapping("/")
 public class MessageController {
 
     private final MessageRepository repository;
 
+    @Autowired
     public MessageController(MessageRepository repository) {
         this.repository = repository;
     }
 
-    public Message getMessageById(String id) {
+    @RequestMapping("/message/{id}")
+    public Message getMessageById(@PathVariable Long id) {
         Message message = this.repository.getMessageById(id);
         return message;
     }
 
+    @RequestMapping("/messages")
     public Collection<Message> getAllMessages() {
         Collection<Message> messages = this.repository.getAllMessages();
         return messages;
     }
+
+    @RequestMapping(value = "/message/", method = RequestMethod.POST)
+    public void createMessage(String header, String content) {
+        this.repository.createMessage(header, content);
+    }
+
 
 }

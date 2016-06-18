@@ -15,6 +15,7 @@
         <module>java-generics-training</module>
         <module>java-lambdas-training</module>
         <module>sample-application</module>
+        <module>spring-core-training</module>
     </modules>
 
 
