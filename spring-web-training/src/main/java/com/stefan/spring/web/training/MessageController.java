@@ -19,19 +19,19 @@ public class MessageController {
         this.repository = repository;
     }
 
-    @RequestMapping("/message/{id}")
+    @RequestMapping(value = "/messages/{id}", method = RequestMethod.GET)
     public Message getMessageById(@PathVariable Long id) {
         Message message = this.repository.getMessageById(id);
         return message;
     }
 
-    @RequestMapping("/messages")
+    @RequestMapping(value = "/messages", method = RequestMethod.GET)
     public Collection<Message> getAllMessages() {
         Collection<Message> messages = this.repository.getAllMessages();
         return messages;
     }
 
-    @RequestMapping(value = "/message/", method = RequestMethod.POST)
+    @RequestMapping(value = "/messages/", method = RequestMethod.POST)
     public void createMessage(String header, String content) {
         this.repository.createMessage(header, content);
     }

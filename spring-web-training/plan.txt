@@ -1,0 +1,6 @@
+PLAN
+
+1. simple web service with xml config
+2. same with annotation
+
+REST Resource naming convention - http://www.restapitutorial.com/lessons/restfulresourcenaming.html
