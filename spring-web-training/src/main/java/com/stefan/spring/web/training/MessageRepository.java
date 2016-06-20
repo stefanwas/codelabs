@@ -35,4 +35,8 @@ public class MessageRepository {
         Message message = new Message(id, header, content, now);
         messages.put(id, message);
     }
+
+    public void deleteMessage(Long id) {
+        messages.remove(id);
+    }
 }

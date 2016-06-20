@@ -8,6 +8,8 @@ public class IdProvider {
     private static Long id = 0L;
 
     public Long getNextValue() {
-        return ++id;
+        synchronized (id) {
+            return ++id;
+        }
     }
 }

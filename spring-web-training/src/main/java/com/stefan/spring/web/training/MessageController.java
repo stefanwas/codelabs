@@ -36,5 +36,10 @@ public class MessageController {
         this.repository.createMessage(header, content);
     }
 
+    @RequestMapping(value = "/messages/{id}", method = RequestMethod.DELETE)
+    public void deleteMessage(@PathVariable Long id) {
+        this.repository.deleteMessage(id);
+    }
+
 
 }
