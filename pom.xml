@@ -16,6 +16,7 @@
         <module>java-lambdas-training</module>
         <module>sample-application</module>
         <module>spring-core-training</module>
+        <module>vertx-training</module>
     </modules>
 
 
