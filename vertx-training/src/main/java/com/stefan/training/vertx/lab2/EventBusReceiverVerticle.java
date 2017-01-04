@@ -1,6 +1,7 @@
 package com.stefan.training.vertx.lab2;
 
 import io.vertx.core.*;
+import io.vertx.core.eventbus.Message;
 
 public class EventBusReceiverVerticle extends AbstractVerticle {
 
@@ -22,9 +23,11 @@ public class EventBusReceiverVerticle extends AbstractVerticle {
 
     @Override
     public void start(Future<Void> startFuture) throws Exception {
-        vertx.eventBus().consumer("anAddress", message -> {
+        Handler<Message<String>> messageHandler = message -> {
             System.out.println(this.name + " received message: " + message.body());
-        });
+        };
+
+        vertx.eventBus().consumer("anAddress", messageHandler);
     }
 
 //    @Override

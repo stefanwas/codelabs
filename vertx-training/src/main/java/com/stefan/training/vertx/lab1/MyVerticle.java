@@ -7,15 +7,7 @@ public class MyVerticle extends AbstractVerticle {
 
     @Override
     public void start(Future<Void> startFuture) {
-
-//        vertx.eventBus().consumer("address", message -> {
-//            System.out.println("1 received message.body() = "  + message.body());
-//        });
-
-
         System.out.println("MyVerticle started!");
-
-
     }
 
     @Override
