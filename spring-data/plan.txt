@@ -1,0 +1,2 @@
+- JPA annotations
+- core Spring Data classes
