@@ -1,4 +1,4 @@
-package com.stefan.training.spring.data;
+package com.stefan.training.spring.data.lab1;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
