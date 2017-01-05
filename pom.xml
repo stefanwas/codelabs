@@ -17,6 +17,7 @@
         <module>sample-application</module>
         <module>spring-core-training</module>
         <module>vertx-training</module>
+        <module>spring-data</module>
     </modules>
 
 
