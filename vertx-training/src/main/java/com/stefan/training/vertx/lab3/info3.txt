@@ -1,1 +1,10 @@
 Lab3 shows how to use HTTP Server (it is probably netty server)
+
+To check if the server is up just open browser and goto localhost:8080
+
+Vert.x HttpServer does not by default close the TPC Connection (browser send Header: 'Connection:keep-alive')
+
+Jetty Server was used only to compare the behavior
+
+---
+lsof -i -P | grep localhost:8080
