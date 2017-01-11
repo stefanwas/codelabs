@@ -11,20 +11,11 @@ public class EventBusReceiverVerticle extends AbstractVerticle {
         this.name = name;
     }
 
-//    @Override
-//    public Vertx getVertx() {
-//        return null;
-//    }
-//
-//    @Override
-//    public void init(Vertx vertx, Context context) {
-//
-//    }
-
     @Override
     public void start(Future<Void> startFuture) throws Exception {
         Handler<Message<String>> messageHandler = message -> {
-            System.out.println(this.name + " received message: " + message.body());
+            String threadName = message.body() + Thread.currentThread().getName();
+            System.out.println(this.name + " received message: " + "[" + threadName + "]");
         };
 
         vertx.eventBus().consumer("anAddress", messageHandler);

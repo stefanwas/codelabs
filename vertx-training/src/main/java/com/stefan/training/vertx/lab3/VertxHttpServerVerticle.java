@@ -10,5 +10,6 @@ public class VertxHttpServerVerticle extends AbstractVerticle {
     @Override
     public void start() throws Exception {
         httpServer = vertx.createHttpServer();
+        httpServer.listen();
     }
 }

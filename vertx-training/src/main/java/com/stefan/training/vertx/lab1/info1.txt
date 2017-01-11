@@ -1,0 +1,5 @@
+Lab1 demonstrates how to:
+ - use Vertex class,
+ - create a new Verticle deploy it and undeploy it.
+
+ One unresolved problem - undeploy method does not stop the Verticle

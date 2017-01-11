@@ -1,0 +1,1 @@
+Lab2 illustrates the communication beween Verticles using EventBus
