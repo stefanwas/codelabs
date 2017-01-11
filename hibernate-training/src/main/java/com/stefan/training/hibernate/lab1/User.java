@@ -1,4 +1,4 @@
-package com.stefan.hibernate.training.lab1;
+package com.stefan.training.hibernate.lab1;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

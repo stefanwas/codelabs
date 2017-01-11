@@ -18,7 +18,7 @@
 
 
       <!-- Mapping classes -->
-      <mapping class="com.stefan.com.stefan.hibernate.training.lab1.User"/>
+      <mapping class="com.stefan.com.stefan.training.hibernate.lab1.User"/>
 
   </session-factory>
 </hibernate-configuration>

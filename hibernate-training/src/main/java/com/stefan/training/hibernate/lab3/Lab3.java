@@ -1,7 +1,7 @@
-package com.stefan.hibernate.training.lab3;
+package com.stefan.training.hibernate.lab3;
 
-import com.stefan.hibernate.training.lab1.Lab1;
-import com.stefan.hibernate.training.lab1.User;
+import com.stefan.training.hibernate.lab1.Lab1;
+import com.stefan.training.hibernate.lab1.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

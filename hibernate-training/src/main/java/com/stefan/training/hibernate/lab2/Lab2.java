@@ -1,6 +1,6 @@
-package com.stefan.hibernate.training.lab2;
+package com.stefan.training.hibernate.lab2;
 
-import com.stefan.hibernate.training.lab1.Lab1;
+import com.stefan.training.hibernate.lab1.Lab1;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
