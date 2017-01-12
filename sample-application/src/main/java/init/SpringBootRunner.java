@@ -7,8 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan(basePackages = { "base" })
 @EnableAutoConfiguration
-public class Runner {
+public class SpringBootRunner {
   public static void main(String[] args) {
-    SpringApplication.run(new Class[] {Runner.class}, args);
+    SpringApplication.run(new Class[] {SpringBootRunner.class}, args);
   }
 }

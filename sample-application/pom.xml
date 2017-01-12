@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>sample-application</artifactId>
+    <packaging>war</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,7 +32,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <!-- the newer plugin version 2.2 strangely falls into infinite loop -->
-                <version>2.1.1</version>
+                <version>3.0.0</version>
             </plugin>
             <!-- usage mvn tomcat7:run -P tomcat -->
             <plugin>
