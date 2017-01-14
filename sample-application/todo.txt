@@ -6,7 +6,7 @@
 - repository config + doc
 - hql & mongodb configs (persistence)
 - simple index.html
-- web.xml
+- web.xml (not needed in Servler API 3.+)
 - configuration tests
 - prepare and test embedded tomcat runner and external tomcat runner
 - add filters
@@ -23,3 +23,5 @@
 - add application environment properties
 ----
 - bootstrap config (custom)
+====
+http://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html

@@ -1,0 +1,2 @@
+No need to use web.xml with Servlet 3.+ API
+The WebAppInitializer.class does the all necessary configuration work.
