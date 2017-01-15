@@ -1,5 +1,6 @@
 package base.configuration;
 
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -66,35 +67,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         configurer.enable();
     }
 
-    //start Thymeleaf specific configuration
 
-
-    //ServletContextTemplateResolver: It resolves templates with provided prefix and suffix and other settings.
-    @Bean(name ="templateResolver")
-    public ServletContextTemplateResolver getTemplateResolver(ServletContext servletContext) {
-        ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(servletContext);
-        templateResolver.setPrefix("/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML5");
-        return templateResolver;
-    }
-
-    //SpringTemplateEngine: It processes templates. We need to assign ServletContextTemplateResolver instance to it. Bean name must be templateEngine.
-    @Bean(name ="templateEngine")
-    public SpringTemplateEngine getTemplateEngine(ServletContext servletContext) {
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        templateEngine.setTemplateResolver(getTemplateResolver(servletContext));
-        return templateEngine;
-    }
-
-    //ThymeleafViewResolver: It runs after controller ends its execution. It receives the view name to be processed.
-    @Bean(name="viewResolver")
-    public ThymeleafViewResolver getViewResolver(ServletContext servletContext){
-        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-        viewResolver.setTemplateEngine(getTemplateEngine(servletContext));
-        viewResolver.setOrder(1);
-        return viewResolver;
-    }
 
 
 

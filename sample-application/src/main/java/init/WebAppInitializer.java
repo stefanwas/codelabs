@@ -18,6 +18,8 @@ public class WebAppInitializer implements WebApplicationInitializer {
         ctx.setServletContext(servletContext);
 
         ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
+        // option 1: "/" - to make MVC Controller work
+        // option 2: "/rest/*" - to make REST services work
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
 
