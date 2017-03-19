@@ -18,11 +18,15 @@ public class ThymeleafConfig {
 
     //ServletContextTemplateResolver: It resolves templates with provided prefix and suffix and other settings.
 //    @Bean(name ="templateResolver")
-    public ServletContextTemplateResolver getTemplateResolver(ServletContext servletContext) {
+    public ClassLoaderTemplateResolver getTemplateResolver(ServletContext servletContext) {
         //here we can use other templates resolvers, like:
-        //ServletContextTemplateResolver, SpringResourceTemplateResolver, UrlTemplateResolver, FileTemplateResolver
-        ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
-        templateResolver.setPrefix("/");
+        // ServletContextTemplateResolver,
+        // SpringResourceTemplateResolver,
+        // UrlTemplateResolver,
+        // FileTemplateResolver
+        // ClassLoaderTemplateResolver
+        ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+        templateResolver.setPrefix("templates/"); // avoid '/' at the beginning of the path
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode("HTML5");
         return templateResolver;

@@ -18,6 +18,8 @@
         <module>spring-security-training</module>
         <module>hibernate-training</module>
         <module>vertx-training</module>
+        <module>spring-security-xml-training</module>
+        <module>spring-security-ano-training</module>
     </modules>
 
 

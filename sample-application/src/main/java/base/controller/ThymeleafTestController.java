@@ -16,7 +16,7 @@ public class ThymeleafTestController {
     // so better use either controller level mapping or method only mapping
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView hello(ModelAndView mv) {
-        mv.addObject("message", "Hello Wojtek!");
+        mv.addObject("message", "Hello Wojtek!!!");
         return mv;
     }
 }

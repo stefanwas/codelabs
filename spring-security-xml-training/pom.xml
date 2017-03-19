@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-security-training</artifactId>
+    <artifactId>spring-security-xml-training</artifactId>
     <packaging>war</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!--<springframework.version>4.1.5.RELEASE</springframework.version>-->
+        <springframework.version>4.1.0.RELEASE</springframework.version>
     </properties>
 
     <build>
@@ -28,7 +28,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!-- usage mvn tomcat7:run -->
+            <!-- usage: mvn tomcat7:run -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
@@ -50,26 +50,25 @@
             <scope>provided</scope>
         </dependency>
 
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>4.1.0.RELEASE</version>
+            <version>${springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>4.1.0.RELEASE</version>
+            <version>${springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>4.1.0.RELEASE</version>
+            <version>${springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>4.1.0.RELEASE</version>
+            <version>${springframework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -77,4 +76,6 @@
             <version>4.1.0.RELEASE</version>
         </dependency>
     </dependencies>
+
+
 </project>

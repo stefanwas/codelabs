@@ -72,10 +72,16 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.0.0</version>
             </plugin>
-            <!--mvn spring-boot:run-->
+            <!--mvn spring-boot:run -Drun.profiles=dev -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <profiles>
+                        <profile>default</profile>
+                        <profile>dev</profile>
+                    </profiles>
+                </configuration>
             </plugin>
             <!-- usage mvn tomcat7:run -P tomcat -->
             <plugin>
