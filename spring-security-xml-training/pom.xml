@@ -34,7 +34,27 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <path>/hello</path>
+                    <path>/spring-security</path>
+                    <systemProperties>
+                        <java.util.logging.config.file>src/main/resources/log4j.xml</java.util.logging.config.file>
+                    </systemProperties>
+                    <!--<extraDependencies>-->
+                        <!--<dependency>-->
+                            <!--<groupId>org.slf4j</groupId>-->
+                            <!--<artifactId>slf4j-api</artifactId>-->
+                            <!--<version>1.7.2</version>-->
+                        <!--</dependency>-->
+                        <!--<dependency>-->
+                            <!--<groupId>org.slf4j</groupId>-->
+                            <!--<artifactId>jul-to-slf4j</artifactId>-->
+                            <!--<version>1.7.2</version>-->
+                        <!--</dependency>-->
+                        <!--<dependency>-->
+                            <!--<groupId>log4j</groupId>-->
+                            <!--<artifactId>log4j</artifactId>-->
+                            <!--<version>1.2.17</version>-->
+                        <!--</dependency>-->
+                    <!--</extraDependencies>-->
                 </configuration>
             </plugin>
         </plugins>
@@ -74,6 +94,18 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>4.1.0.RELEASE</version>
+        </dependency>
+
+        <!-- ====== logging ======== -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.20</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.20</version>
         </dependency>
     </dependencies>
 

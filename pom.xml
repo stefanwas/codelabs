@@ -20,6 +20,7 @@
         <module>vertx-training</module>
         <module>spring-security-xml-training</module>
         <module>spring-security-ano-training</module>
+        <module>spring-security-jsp2-training</module>
     </modules>
 
 

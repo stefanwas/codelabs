@@ -7,7 +7,7 @@
 
 
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>/index.html</welcome-file>
     </welcome-file-list>
 
     <!-- This listener creates a context that is a root context for all other servlet and filter contexts -->
@@ -35,7 +35,12 @@
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <!-- if this is not present then index.html cannot be accessed -->
-        <url-pattern>/rest/*</url-pattern>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>jsp</servlet-name>
+        <url-pattern>/WEB-INF/pages/*</url-pattern>
     </servlet-mapping>
 
     <filter>
@@ -45,7 +50,7 @@
 
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>/rest/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
 </web-app>

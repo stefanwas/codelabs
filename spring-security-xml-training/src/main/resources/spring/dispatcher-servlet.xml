@@ -9,4 +9,15 @@
 
     </bean>
 
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <!-- the / at the beginning is obligatory -->
+            <!-- content at /WEB-INF is not served by tomcat, but is visible to java code -->
+            <value>/WEB-INF/pages/</value>
+        </property>
+        <property name="suffix">
+            <value>.html</value>
+        </property>
+    </bean>
+
 </beans>
