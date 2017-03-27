@@ -2,36 +2,53 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <artifactId>master</artifactId>
         <groupId>com.stefan.codelabs</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-security-jsp2-training</artifactId>
+    <artifactId>spring-security-rest-training</artifactId>
     <packaging>war</packaging>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>4.2.1.RELEASE</spring.version>
+    </properties>
+
     <build>
-        <finalName>SpringSecurityTutorial</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!-- it is required for servlet  3.0+ API -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
             <!-- usage: mvn tomcat7:run -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <path>/spring-security-jsp2</path>
+                    <path>/spring-security</path>
+                    <systemProperties>
+                        <java.util.logging.config.file>src/main/resources/log4j.xml</java.util.logging.config.file>
+                    </systemProperties>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    <properties>
-        <spring.version>4.2.1.RELEASE</spring.version>
-        <security.version>4.0.3.RELEASE</security.version>
-        <jdk.version>1.7</jdk.version>
-    </properties>
+
 
     <dependencies>
         <dependency>
@@ -55,17 +72,17 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>${security.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>${security.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>${security.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>jstl</groupId>
@@ -85,5 +102,6 @@
             <version>1.7.20</version>
         </dependency>
     </dependencies>
+
 
 </project>

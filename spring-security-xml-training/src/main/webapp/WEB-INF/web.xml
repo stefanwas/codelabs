@@ -35,7 +35,7 @@
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <!-- if this is not present then index.html cannot be accessed -->
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

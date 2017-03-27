@@ -60,4 +60,13 @@ public class HelloController {
         model.setViewName("login");
         return model;
     }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public ModelAndView logout() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Security Hello World");
+        model.addObject("message", "This is login page!");
+        model.setViewName("login");
+        return model;
+    }
 }

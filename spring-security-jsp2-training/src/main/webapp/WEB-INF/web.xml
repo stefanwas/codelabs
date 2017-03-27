@@ -20,6 +20,7 @@
 
     <!-- jsp servlet mapping is a must, otherwise the requests for jsp pages will be redirected to the SpringConfig servlet and will fail -->
     <!-- additionally we don't need to define jsp servlet here, as it exists by default in Tomcat servlet container -->
+    <!-- the selection of the servlet takes place by the longest matching url-pattern -->
 
     <servlet-mapping>
         <servlet-name>jsp</servlet-name>

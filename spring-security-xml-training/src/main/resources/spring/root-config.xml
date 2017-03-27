@@ -7,10 +7,10 @@
 
     <security:http use-expressions="true">
         <security:csrf disabled="true" />
-        <security:intercept-url pattern="/admin" access="hasRole('ROLE_USER')" />
-        <security:intercept-url pattern="/login" access="permitAll" />
+        <security:intercept-url pattern="/rest/admin" access="hasRole('ROLE_USER')" />
+        <security:intercept-url pattern="/rest/login" access="permitAll" />
         <!--<security:http-basic  />-->
-        <security:form-login login-page='/login' username-parameter="username" password-parameter="password" />
+        <security:form-login login-page='/rest/login' username-parameter="username" password-parameter="password" />
                 <!--login-page='/login.html'-->
                 <!--default-target-url="/homepage.html"-->
                 <!--authentication-failure-url="/login.html?error=true" />-->
@@ -24,6 +24,7 @@
             </security:user-service>
         </security:authentication-provider>
     </security:authentication-manager>
+
 
 
 
