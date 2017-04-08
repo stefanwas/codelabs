@@ -12,6 +12,9 @@
       http://www.springframework.org/schema/context
 	  http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
+    <!-- basic authentication requires a lot of less configuration and would be a good place to start -->
+    <!-- https://www.youtube.com/watch?v=_myz6jahdQA -->
+
     <beans:bean id="customEntryPoint" class="com.stefan.training.CustomEntryPoint" />
 
     <sec:http entry-point-ref="customEntryPoint" use-expressions="true">

@@ -30,6 +30,7 @@ public class StatusController {
      * no Accept param specified will return json response (default is the first type on the list)
      */
     @RequestMapping(value = "", method = RequestMethod.GET, produces = {"application/xml", "application/json"})
+    //@ResponseBody - when we use @ResponseBody, we are saying that we do not want a view produced.(by default ModelAndView is produced)
     public Status getStatus() {
         return createStatus();
     }

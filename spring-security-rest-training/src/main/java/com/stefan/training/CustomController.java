@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomController
 {
 
-    @RequestMapping(value="/welcome/{customer}",method=RequestMethod.POST)
+    @RequestMapping(value="/welcome/{customer}", method=RequestMethod.POST)
     public ResponseEntity<String> welcomeUser(@PathVariable("customer") String customer)
     {
         System.out.println("Inside welcomeUser in controller");

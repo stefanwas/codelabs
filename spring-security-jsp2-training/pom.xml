@@ -13,6 +13,12 @@
     <artifactId>spring-security-jsp2-training</artifactId>
     <packaging>war</packaging>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.core.version>4.3.5.RELEASE</spring.core.version>
+        <spring.security.version>4.2.2.RELEASE</spring.security.version>
+    </properties>
+
     <build>
         <finalName>SpringSecurityTutorial</finalName>
         <plugins>
@@ -27,11 +33,6 @@
             </plugin>
         </plugins>
     </build>
-    <properties>
-        <spring.version>4.2.1.RELEASE</spring.version>
-        <security.version>4.0.3.RELEASE</security.version>
-        <jdk.version>1.7</jdk.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -43,30 +44,31 @@
 
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring.core.version}</version>
         </dependency>
         <!-- Spring Security -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>${security.version}</version>
+            <version>${spring.security.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>${security.version}</version>
+            <version>${spring.security.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>${security.version}</version>
+            <version>${spring.security.version}</version>
         </dependency>
+
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
