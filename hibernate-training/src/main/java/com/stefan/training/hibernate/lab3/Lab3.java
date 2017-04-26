@@ -63,4 +63,14 @@ public class Lab3 {
 
   }
 
+  public static boolean isPalindrome(String input) {
+    for (int i=0; i<input.length(); i++) {
+      if (!(input.charAt(i) == input.charAt(input.length() - i - 1))) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
 }
