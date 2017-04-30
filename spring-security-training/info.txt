@@ -1,0 +1,10 @@
+Thymeleaf reference types:
+
+${...} : Variable expressions. These are OGNL expressions (or Spring EL if you have spring integrated)
+*{...} : Selection expressions. Same as above, excepted it will be executed on a previously selected object only
+#{...} : Message (i18n) expressions. Used to retrieve locale-specific messages from external sources
+@{...} : Link (URL) expressions. Used to build URLs
+~{...} : Fragment expressions. Represent fragments of markup and move them around templates
+
+
+ModelAndView vs ModelMap classes in web methods?

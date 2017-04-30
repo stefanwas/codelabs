@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Admin</title>
+</head>
+<body>
+    <p>TEST2</p>
+    <p th:text="${welcomeMessage}"/>
+    <!--<a th:href="@{/logout}">Logout</a>-->
+    <form id="logout" action="#" th:action="@{/logout}" method="POST">
+        <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />-->
+    </form>
+    <a href="javascript:document.getElementById('logout').submit()">Logout</a>
+    <!--<p th:text="${global}"/>-->
+</body>
+</html>

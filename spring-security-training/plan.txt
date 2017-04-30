@@ -1,0 +1,8 @@
+1. Add slf4j + log4j logging DONE
+2. Add user page
+3. Add header with information about logged in user name + role (fragment)
+4. logout DONE
+---
+Epics:
+- Google login integration
+-
