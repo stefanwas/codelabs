@@ -6,5 +6,13 @@ ${...} : Variable expressions. These are OGNL expressions (or Spring EL if you h
 @{...} : Link (URL) expressions. Used to build URLs
 ~{...} : Fragment expressions. Represent fragments of markup and move them around templates
 
+-----
 
 ModelAndView vs ModelMap classes in web methods?
+
+ModelMap to mapa z atrybutami modelu. ModelMap jest parametrem web metody. W ciele metody ustawiamy atrybuty poprzez
+addAttribute() a na końcu zwracamy nazwę widoku.
+ModelAndView to alternatywne podejście. Łączy w sobie ModelMap i nazwę widoku. Widok można zdefiniować też bezpośrednio,
+wtedy prawdopodobnie nie jest porzebny ViewResolver.
+
+-----

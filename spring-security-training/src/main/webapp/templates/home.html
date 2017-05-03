@@ -5,9 +5,18 @@
     <title>Home</title>
 </head>
 <body>
-<p>TEST1</p>
-<p th:text="${welcome}"/>
-<!--<p th:text="${global}"/>-->
-<!--<a th:href="@{/logout}">Logout</a>-->
+<!--<div th:if="!${principal}">-->
+    <!--<h3>You are not logged in.</h3>-->
+<!--</div>-->
+<!--<div th:if="${principal}">-->
+<!--</div >-->
+
+    <div th:replace="fragments/header :: header"/>
+
+    <p th:text="${welcome}"/>
+
+    <!--<p th:text="${global}"/>-->
+    <a th:href="@{/user}">User</a>
+    <a th:href="@{/admin}">Admin</a>
 </body>
 </html>

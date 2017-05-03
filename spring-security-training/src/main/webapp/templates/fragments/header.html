@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="header">
+        <div th:if="${principal}">
+            <h3> You are logged in as: [<span th:text="${principal}" />]</h3>
+            <form id="logout" action="#" th:action="@{/logout}" method="POST"></form>
+            <a href="javascript:document.getElementById('logout').submit()">Logout</a>
+        </div>
+        <div th:if="!${principal}">
+            <h3>You are not logged in.</h3>
+            <a th:href="@{/login}">Login</a>
+        </div >
+
+    </div>
+</body>
+</html>

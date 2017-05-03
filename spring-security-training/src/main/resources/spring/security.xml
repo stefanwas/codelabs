@@ -6,23 +6,26 @@
  http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http>
-        <!--<intercept-url pattern="/login" access="permitAll" />-->
+        <intercept-url pattern="/login" access="permitAll" />
+        <intercept-url pattern="/logout" access="permitAll" />
+        <intercept-url pattern="/home" access="permitAll" />
         <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
-        <!--<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />-->
+        <intercept-url pattern="/user" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/**" access="isAuthenticated()" />
         <form-login
-                login-page="/login"
-                default-target-url="/home"
-                authentication-failure-url="/login?error"
+                login-page="/login" default-target-url="/home" authentication-failure-url="/login?error"
                 username-parameter="username" password-parameter="password" />
         <csrf/>
         <logout logout-success-url="/logout" />
+        <access-denied-handler error-page="/access-denied" />
+        <!--<anonymous enabled="false" />-->
     </http>
 
     <authentication-manager>
         <authentication-provider>
             <user-service>
                 <user name="user" password="user" authorities="ROLE_USER" />
-                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
+                <user name="admin" password="admin" authorities="ROLE_ADMIN, ROLE_USER" />
             </user-service>
         </authentication-provider>
     </authentication-manager>

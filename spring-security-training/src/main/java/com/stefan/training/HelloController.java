@@ -1,49 +1,54 @@
 package com.stefan.training;
 
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HelloController {
 
-//    @RequestMapping("/welcome")
-//    public ModelAndView hello() {
-//        String welcomeMessage = "Hello Controller -  Message";
-//        return new ModelAndView("hello", "welcomeMessage", welcomeMessage);
-//    }
-
     @RequestMapping(value = "/home")
     public ModelAndView home() {
         ModelAndView mv = new ModelAndView();
         mv.addObject("welcome", "This is home page!");
+        mv.addObject("principal", getCurrentUser());
         mv.setViewName("/home");
         return mv;
     }
 
     @RequestMapping("/admin")
     public ModelAndView admin() {
-        return new ModelAndView("/admin", "welcomeMessage", "Welcome to Admin Page !!");
+        ModelAndView mv = new ModelAndView("/admin");
+        mv.addObject("welcomeMessage", "Welcome to Admin page!!!");
+        mv.addObject("principal", getCurrentUser());
+        return mv;
     }
 
+    @RequestMapping("/user")
+    public ModelAndView user() {
+        ModelAndView mv = new ModelAndView("/user");
+        mv.addObject("welcomeMessage", "Welcome to User page!!!");
+        mv.addObject("principal", getCurrentUser());
+        return mv;
+    }
 
+    private String getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (isAuthenticated()) {
+            String username = authentication.getName();
+            return username;
+        } else {
+            return null;
+        }
+    }
 
-
-
-//    @RequestMapping(value = "/login", method = RequestMethod.POST)
-//    public String loginPost()
-//    {
-//        System.out.println("!!!!!!!!!!!!!!Inside login POST");
-//        return "login";
-//    }
-//
-//    private boolean isValid(String username, String password) {
-//        return username.charAt(0) == password.charAt(0);
-//    }
+    private boolean isAuthenticated() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.isAuthenticated();
+    }
 
 
 }

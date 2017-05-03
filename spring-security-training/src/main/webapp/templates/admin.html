@@ -5,13 +5,17 @@
     <title>Admin</title>
 </head>
 <body>
-    <p>TEST2</p>
+
+
+    <div th:replace="fragments/header :: header"/>
+
+    <p>Admin Page</p>
     <p th:text="${welcomeMessage}"/>
     <!--<a th:href="@{/logout}">Logout</a>-->
-    <form id="logout" action="#" th:action="@{/logout}" method="POST">
-        <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />-->
-    </form>
-    <a href="javascript:document.getElementById('logout').submit()">Logout</a>
+    <!--<form id="logout" action="#" th:action="@{/logout}" method="POST">-->
+        <!--&lt;!&ndash;<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />&ndash;&gt;-->
+    <!--</form>-->
+    <!--<a href="javascript:document.getElementById('logout').submit()">Logout</a>-->
     <!--<p th:text="${global}"/>-->
 </body>
 </html>

@@ -31,6 +31,12 @@ public class LoginController {
         return "/security/logout";
     }
 
+    @RequestMapping(path = "/access-denied", method = RequestMethod.GET)
+    public String accessDenied() {
+        return "/security/access-denied";
+    }
+
+
 
 //    @RequestMapping("/error")
 //    public String error(ModelMap model) {
