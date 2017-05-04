@@ -1,7 +1,7 @@
 Tasks:
 1. Add slf4j + log4j logging DONE
 2. Add user page + more login restrictions DONE
-3. Add header with information about logged in user name + role (fragment)
+3. Add header with information about logged in user name + role (fragment) DONE
 4. logout DONE
 5. Add DB user authentication
 
@@ -9,3 +9,4 @@ Tasks:
 Feats:
 - Google login integration
 - thymeleaf engine throttling
+- switch to https (TLS)

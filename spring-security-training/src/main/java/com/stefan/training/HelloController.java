@@ -1,11 +1,16 @@
 package com.stefan.training;
 
 
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class HelloController {
@@ -15,6 +20,7 @@ public class HelloController {
         ModelAndView mv = new ModelAndView();
         mv.addObject("welcome", "This is home page!");
         mv.addObject("principal", getCurrentUser());
+        mv.addObject("roles", getRoles());
         mv.setViewName("/home");
         return mv;
     }
@@ -24,6 +30,7 @@ public class HelloController {
         ModelAndView mv = new ModelAndView("/admin");
         mv.addObject("welcomeMessage", "Welcome to Admin page!!!");
         mv.addObject("principal", getCurrentUser());
+        mv.addObject("roles", getRoles());
         return mv;
     }
 
@@ -32,12 +39,25 @@ public class HelloController {
         ModelAndView mv = new ModelAndView("/user");
         mv.addObject("welcomeMessage", "Welcome to User page!!!");
         mv.addObject("principal", getCurrentUser());
+        mv.addObject("roles", getRoles());
         return mv;
     }
 
+    private String getRoles() {
+        if (isLoggedIn()) {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            String roles = authentication.getAuthorities().stream()
+                    .map(GrantedAuthority::getAuthority)
+                    .collect(Collectors.joining(", "));
+            return roles;
+        } else {
+            return "";
+        }
+    }
+
     private String getCurrentUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (isAuthenticated()) {
+        if (isLoggedIn()) {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String username = authentication.getName();
             return username;
         } else {
@@ -45,9 +65,10 @@ public class HelloController {
         }
     }
 
-    private boolean isAuthenticated() {
+    private boolean isLoggedIn() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return authentication.isAuthenticated();
+        return authentication != null && authentication.isAuthenticated()
+                && !(authentication instanceof AnonymousAuthenticationToken);
     }
 
 

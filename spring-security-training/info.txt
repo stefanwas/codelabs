@@ -16,3 +16,12 @@ ModelAndView to alternatywne podejście. Łączy w sobie ModelMap i nazwę widok
 wtedy prawdopodobnie nie jest porzebny ViewResolver.
 
 -----
+
+Gdy wyłączymy anonymous authentication (<anonymous enabled="false" />) to przestaje działać dostęp do ścieżki /login.
+W takim przypadku trzeba wynieść /login poza filter chain tj. <http> element.
+
+
+
+
+=== links ===
+https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#multiple-httpsecurity

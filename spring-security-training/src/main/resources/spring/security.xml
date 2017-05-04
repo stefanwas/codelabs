@@ -5,10 +5,14 @@
  http://www.springframework.org/schema/security
  http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <!--<http security="none" pattern="/login" >-->
+    <!--</http>-->
+
+
     <http>
-        <intercept-url pattern="/login" access="permitAll" />
-        <intercept-url pattern="/logout" access="permitAll" />
-        <intercept-url pattern="/home" access="permitAll" />
+        <intercept-url pattern="/login" access="permitAll()" />
+        <intercept-url pattern="/logout" access="permitAll()" />
+        <intercept-url pattern="/home" access="permitAll()" />
         <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/user" access="hasRole('ROLE_USER')" />
         <intercept-url pattern="/**" access="isAuthenticated()" />
