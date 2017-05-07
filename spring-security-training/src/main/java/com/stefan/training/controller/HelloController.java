@@ -1,6 +1,10 @@
-package com.stefan.training;
+package com.stefan.training.controller;
 
 
+import com.stefan.training.model.User;
+import com.stefan.training.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,11 +13,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
 public class HelloController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(HelloController.class);
+
+    @Resource
+    UserRepository userRepository;
 
     @RequestMapping(value = "/home")
     public ModelAndView home() {
@@ -31,6 +41,12 @@ public class HelloController {
         mv.addObject("welcomeMessage", "Welcome to Admin page!!!");
         mv.addObject("principal", getCurrentUser());
         mv.addObject("roles", getRoles());
+
+        List<User> users = userRepository.getAllUsers();
+
+        LOGGER.debug("Users: {}", users);
+
+        mv.addObject("users", users);
         return mv;
     }
 
@@ -42,6 +58,20 @@ public class HelloController {
         mv.addObject("roles", getRoles());
         return mv;
     }
+
+    @RequestMapping("/users")
+    public ModelAndView users() {
+        ModelAndView mv = new ModelAndView("/users");
+        mv.addObject("welcomeMessage", "Welcome to Users page!!!");
+        mv.addObject("principal", getCurrentUser());
+        mv.addObject("roles", getRoles());
+
+        List<User> users = userRepository.getAllUsers();
+        mv.addObject("totalUsers", users.size());
+
+        return mv;
+    }
+
 
     private String getRoles() {
         if (isLoggedIn()) {

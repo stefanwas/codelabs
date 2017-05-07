@@ -8,6 +8,7 @@
     <!--<http security="none" pattern="/login" >-->
     <!--</http>-->
 
+    <beans:import resource="datasource.xml" />
 
     <http>
         <intercept-url pattern="/login" access="permitAll()" />
@@ -25,12 +26,20 @@
         <!--<anonymous enabled="false" />-->
     </http>
 
+
+
+    <beans:bean id="userService" class="com.stefan.training.service.UserService">
+        <beans:property name="userRepository">
+            <beans:bean class="com.stefan.training.repository.UserRepository" />
+        </beans:property>
+    </beans:bean>
+
     <authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="user" password="user" authorities="ROLE_USER" />
-                <user name="admin" password="admin" authorities="ROLE_ADMIN, ROLE_USER" />
-            </user-service>
+        <authentication-provider user-service-ref="userService">
+            <!--<user-service>-->
+                <!--<user name="user" password="user" authorities="ROLE_USER" />-->
+                <!--<user name="admin" password="admin" authorities="ROLE_ADMIN, ROLE_USER" />-->
+            <!--</user-service>-->
         </authentication-provider>
     </authentication-manager>
 
