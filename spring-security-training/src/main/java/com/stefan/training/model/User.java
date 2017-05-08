@@ -67,17 +67,17 @@ public class User implements UserDetails{
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
@@ -90,8 +90,13 @@ public class User implements UserDetails{
         List<GrantedAuthority> authorities = new ArrayList<>();
         if (!StringUtils.isEmpty(roles)) {
             String[] separateRoles = roles.split(",");
+            System.out.println("Separate Roles=" + separateRoles);
             Arrays.stream(separateRoles).forEach(
-                    role -> authorities.add((GrantedAuthority) () -> role.trim().toUpperCase()));
+                    role -> authorities.add((GrantedAuthority) () -> {
+                        String authority = role.trim().toUpperCase();
+                        System.out.println("Authority="+authority);
+                        return authority;
+                    }));
         }
         return authorities;
     }

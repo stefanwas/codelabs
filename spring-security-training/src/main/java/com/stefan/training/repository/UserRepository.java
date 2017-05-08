@@ -45,6 +45,7 @@ public class UserRepository {
     }
 
     public User findUserByName(String username) {
+        LOGGER.info("Find user by name: [{}]. JDBCTemplate={}", username, jdbcTemplate == null);
         List<User> users = jdbcTemplate.query("select * from users where username = ?", userRowMapper, username);
         LOGGER.info("Find user by name: [{}]. Found [{}].", username, users.size());
         return (users != null && !users.isEmpty()) ? users.get(0) : null;
