@@ -28,20 +28,10 @@
         <!--<anonymous enabled="false" />-->
     </security:http>
 
-
-
-    <!--<bean id="userService" class="com.stefan.training.service.UserService">-->
-        <!--<property name="userRepository">-->
-            <!--<bean class="com.stefan.training.repository.UserRepository" />-->
-        <!--</property>-->
-    <!--</bean>-->
-
+    <!--https://www.mkyong.com/spring-security/spring-security-password-hashing-example/-->
     <security:authentication-manager>
-        <security:authentication-provider user-service-ref="userService">
-            <!--<user-service>-->
-                <!--<user name="user" password="user" authorities="ROLE_USER" />-->
-                <!--<user name="admin" password="admin" authorities="ROLE_ADMIN, ROLE_USER" />-->
-            <!--</user-service>-->
+        <security:authentication-provider user-service-ref="userAuthenticationService">
+            <security:password-encoder hash="bcrypt" />
         </security:authentication-provider>
     </security:authentication-manager>
 

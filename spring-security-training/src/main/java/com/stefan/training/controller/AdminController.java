@@ -2,6 +2,7 @@ package com.stefan.training.controller;
 
 import com.stefan.training.model.User;
 import com.stefan.training.repository.UserRepository;
+import com.stefan.training.service.PasswordService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -26,6 +27,9 @@ public class AdminController {
     @Resource
     UserRepository userRepository;
 
+    @Resource
+    PasswordService passwordService;
+
     @RequestMapping(path = "/admin", method = RequestMethod.GET)
     public ModelAndView admin() {
         ModelAndView mv = new ModelAndView("/admin");
@@ -46,7 +50,10 @@ public class AdminController {
                              @RequestParam("password") String password,
                              @RequestParam("roles") String roles) {
 
-        User newUser = new User(username, password, roles);
+        String encryptedPassword = passwordService.cretePasswordHash(password);
+
+        User newUser = new User(username, password, encryptedPassword, roles);
+
         userRepository.create(newUser);
 
         LOGGER.info("New user created: {}", newUser);

@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-public class User implements UserDetails{
+public class User {
 
     private Long id;
     private String username;
@@ -17,11 +17,13 @@ public class User implements UserDetails{
     private String encryptedPassword;
     private String roles;
 
-    public User() {}
+    public User() {
+    }
 
-    public User(String username, String password, String roles) {
+    public User(String username, String password, String encryptedPassword, String roles) {
         this.username = username;
         this.password = password;
+        this.encryptedPassword = encryptedPassword;
         this.roles = roles;
     }
 
@@ -63,42 +65,6 @@ public class User implements UserDetails{
 
     public void setRoles(String roles) {
         this.roles = roles;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        if (!StringUtils.isEmpty(roles)) {
-            String[] separateRoles = roles.split(",");
-            System.out.println("Separate Roles=" + separateRoles);
-            Arrays.stream(separateRoles).forEach(
-                    role -> authorities.add((GrantedAuthority) () -> {
-                        String authority = role.trim().toUpperCase();
-                        System.out.println("Authority="+authority);
-                        return authority;
-                    }));
-        }
-        return authorities;
     }
 
     @Override
