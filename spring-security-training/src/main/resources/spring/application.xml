@@ -31,6 +31,7 @@
         <property name="additionalDialects">
             <list>
                 <bean class="nz.net.ultraq.thymeleaf.LayoutDialect"/>
+                <bean class="org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect" />
             </list>
         </property>
         <property name="templateResolver" ref="templateResolver" />

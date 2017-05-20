@@ -11,15 +11,16 @@ Tasks:
 2. user Spring @Repository to access data DONE
 3. configure user authentication DONE
 4. add controller to manage users DONE
-5. password encryption
-6. improve admin, create/deleteUser URL without redirect:
-7. method level authorization
-8. template content display AuthZ
+5. password encryption DONE
+6. improve admin, create/deleteUser URL without redirect: GET after POST -> PRG approach
+7. method level authorization SKIPPED
+8. template content display AuthZ DONE
+9. add separate table with roles SKIPPED
 
 
 Feats:
 - initial setup DONE
-- DB based authentication
+- DB based authentication DONE
 - switch to https (TLS)
 - Google login integration
 - thymeleaf engine throttling (reactive approach)

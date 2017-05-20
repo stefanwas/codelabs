@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <body>
     <div th:fragment="header">
         <div th:if="${principal}">
@@ -12,6 +15,26 @@
             <a th:href="@{/login}">Login</a>
         </div >
 
+        <hr/>
+
+        <div sec:authorize="isAuthenticated()">
+            This content is only shown to authenticated users.
+        </div>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            This content is only shown to administrators.
+        </div>
+        <div sec:authorize="hasRole('ROLE_USER')">
+            This content is only shown to users.
+        </div>
+
+        <hr/>
+
+        Logged user: <b><span sec:authentication="name" /></b>
+        <br/>
+        User roles: <b><span sec:authentication="principal.authorities" /></b>
+
+        <hr/>
+        <hr/>
     </div>
 </body>
 </html>
