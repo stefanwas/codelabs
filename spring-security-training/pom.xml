@@ -36,6 +36,11 @@
                 <version>2.2</version>
                 <configuration>
                     <path>/training</path>
+                    <httpPort>8080</httpPort>
+                    <!--<httpsPort>8080</httpsPort>-->
+                    <!--<contextFile>${basedir}/context.xml</contextFile>-->
+                    <!--<keystoreFile>${basedir}/tomcat/certificates/.keystore</keystoreFile>-->
+                    <!--<keystorePass>wojtek</keystorePass>-->
                 </configuration>
             </plugin>
         </plugins>

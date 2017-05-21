@@ -17,6 +17,7 @@ Tasks:
 8. template content display AuthZ DONE
 9. add separate table with roles SKIPPED
 
+- SSL/TLS
 
 Feats:
 - initial setup DONE
