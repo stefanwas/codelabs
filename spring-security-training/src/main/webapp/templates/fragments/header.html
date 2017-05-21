@@ -17,23 +17,23 @@
 
         <hr/>
 
-        <!--<div sec:authorize="isAuthenticated()">-->
-            <!--You are authenticated user.-->
-        <!--</div>-->
-        <!--<div sec:authorize="hasRole('ROLE_ADMIN')">-->
-            <!--You have ADMIN role.-->
-        <!--</div>-->
-        <!--<div sec:authorize="hasRole('ROLE_USER')">-->
-            <!--You have USER role.-->
-        <!--</div>-->
+        <div sec:authorize="isAuthenticated()">
+            You are authenticated user.
+        </div>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            You have ADMIN role.
+        </div>
+        <div sec:authorize="hasRole('ROLE_USER')">
+            You have USER role.
+        </div>
 
-        <!--<div sec:authorize="isAuthenticated()">-->
-            <!--<hr/>-->
-            <!--Logged user: <b><span sec:authentication="name" /></b>-->
-            <!--<br/>-->
-            <!--User roles: <b><span sec:authentication="principal.roles" /></b>-->
-            <!--<hr/>-->
-        <!--</div>-->
+        <div sec:authorize="isAuthenticated()">
+            <hr/>
+            Logged user: <b><span sec:authentication="name" /></b>
+            <br/>
+            User roles: <b><span sec:authentication="principal.roles" /></b>
+            <hr/>
+        </div>
     </div>
 </body>
 </html>
