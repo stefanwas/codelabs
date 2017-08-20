@@ -23,6 +23,7 @@
         <module>spring-security-jsp2-training</module>
         <module>spring-security-rest-training</module>
         <module>spring-thymeleaf-training</module>
+        <module>reactjs-training</module>
     </modules>
 
 
