@@ -135,7 +135,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework</groupId>
+            <groupId>org.springframework</groupId>echo
             <artifactId>spring-jdbc</artifactId>
             <!--<version>4.3.5.RELEASE</version>-->
         </dependency>

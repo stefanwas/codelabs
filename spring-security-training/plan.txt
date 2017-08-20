@@ -18,11 +18,13 @@ Tasks:
 9. add separate table with roles SKIPPED
 
 - SSL/TLS
+1. add SSL config to maven tomcat plugin DONE
+2. add SSL config to the standalone tomcat
 
 Feats:
 - initial setup DONE
 - DB based authentication DONE
-- switch to https (TLS)
+- switch to https (SSL/TLS)
 - Google login integration
 - thymeleaf engine throttling (reactive approach)
 - move app spring config to java
