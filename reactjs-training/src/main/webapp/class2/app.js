@@ -7,11 +7,11 @@ var ContactItem = React.createClass({
   },
 
   render: function() {
-    return ( //<- me nawiasy są ważne!!! dlaczego?
+    //return (
 
-        React.createElement('h2', {className: 'Contact-name'}, this.props.name)
+    return    React.createElement('h2', {className: 'Contact-name'}, this.props.name);
 
-    )
+    //)
   },
 });
 
