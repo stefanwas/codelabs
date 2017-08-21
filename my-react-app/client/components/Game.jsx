@@ -1,43 +1,45 @@
 import React from 'react';
+import _ from 'lodash';
 
 class Square extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      value: null,
+    };
+  }
+
   render() {
     return (
-      <button className="square">
-        {/* TODO */}
+      <button className="square" onClick={() => alert('click')}>
+        {this.props.value}
       </button>
     );
   }
 }
 
 class Board extends React.Component {
+
   renderSquare(i) {
-    return <Square />;
+    return <Square value={i}/>;
+  }
+
+  renderRow(n) {
+     var row = _.range(3).map(i => <Square value={3 * n + i} key={i}/>);
+    return ( <div className="board-row" key={n}> {row} </div>  );
   }
 
   render() {
     const status = 'Next player: X';
 
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
+    var rows = [];
+    for (var n = 0; n < 3; n++) {
+        rows.push( this.renderRow(n));
+    }
+
+    return (<div> {rows} </div>);
+
   }
 }
 
@@ -57,9 +59,5 @@ export default class Game extends React.Component {
   }
 }
 
-// ========================================
 
-//ReactDOM.render(
-//  <Game />,
-//  document.getElementById('root')
-//);
+
