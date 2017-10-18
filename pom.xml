@@ -24,6 +24,7 @@
         <module>spring-security-rest-training</module>
         <module>spring-thymeleaf-training</module>
         <module>reactjs-training</module>
+        <module>java-handythings-training</module>
     </modules>
 
 
