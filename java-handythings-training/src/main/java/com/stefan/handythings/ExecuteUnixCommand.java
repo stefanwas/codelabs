@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Executes a command line program and prints out its output
+ */
 public class ExecuteUnixCommand {
 
     public static void main(String[] args) {
