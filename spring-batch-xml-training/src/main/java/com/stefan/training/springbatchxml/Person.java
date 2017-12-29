@@ -1,6 +1,12 @@
 package com.stefan.training.springbatchxml;
 
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "persons")
 public class Person {
+
     private String firstName;
     private String lastName;
 
@@ -17,10 +23,12 @@ public class Person {
         this.firstName = firstName;
     }
 
+    @XmlAttribute(name = "firstName")
     public String getFirstName() {
         return firstName;
     }
 
+    @XmlAttribute(name = "lastName")
     public String getLastName() {
         return lastName;
     }
