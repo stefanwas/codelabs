@@ -17,7 +17,7 @@ public class SpringBatchApplication {
         ApplicationContext context = new ClassPathXmlApplicationContext(springConfigLocation);
 
         JobLauncher jobLauncher = (JobLauncher) context.getBean("jobLauncher");
-        Job job = (Job) context.getBean("data/person-converter-job");
+        Job job = (Job) context.getBean("person-converter-job");
 
         JobExecution execution = jobLauncher.run(job, new JobParameters());
 
