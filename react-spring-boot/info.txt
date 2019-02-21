@@ -1,0 +1,12 @@
+Trzy sposoby uruchomienia projektu
+
+1. Maven
+mvn
+
+2. IntelliJ - osobno frontend i backend
+
+front: node start
+back IntelliJ ->strat
+
+3. Docker
+
